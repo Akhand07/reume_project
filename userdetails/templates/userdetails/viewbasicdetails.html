@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>| View the basic details of student|</title>
+
+      <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/0e3ac2e4e1.js" crossorigin="anonymous"></script>
+
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static 'userdetails/css/viewbasicdetails.css' %}">
+</head>
+<body>
+<div class="row mt-4" style="margin-left: 13%;">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-sm-3 col-xs-12">
+                            <h4 class="title"><span style="font-family: 'Times New Roman';">View details</span></h4>
+                        </div>
+                </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <form action="/deleteviewdata/" method="post">
+                        {% csrf_token %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="font-family: 'Times New Roman';">SELECT</th>
+                                <th style="font-family: 'Times New Roman';">First name</th>
+                                <th style="font-family: 'Times New Roman';">Last name</th>
+                                <th style="font-family: 'Times New Roman';">Father name</th>
+                                <th style="font-family: 'Times New Roman';">Mother name</th>
+                                <th style="font-family: 'Times New Roman';">DoB</th>
+                                <th style="font-family: 'Times New Roman';">Gender</th>
+                                <th style="font-family: 'Times New Roman';">About</th>
+                                <th style="font-family: 'Times New Roman';">Action</th>
+                            </tr>
+                        </thead>
+                        {% for vd in viewedudetails %}
+                        <tbody>
+                            <tr style="font-family: 'Times New Roman';">
+                                <td>{{vd.id}}<input type="checkbox" name="chk" value="{{vd.id}}"></td>
+                                <td>{{vd.first_name}}</td>
+                                <td>{{vd.last_name}}</td>
+                                <td>{{vd.father_name}}</td>
+                                <td>{{vd.mother_name}}</td>
+                                <td>{{vd.date_of_birth}}</td>
+                                <td>{{vd.gender}}</td>
+                                <td>{{vd.about}}</td>
+                                <td>
+                                    <ul class="action-list">
+                                        <li><a href="/editbasicdata/{{vd.id}}" data-tip="edit"><i class="fa fa-edit"></i></a></li>
+                                        <li><button type="submit"><i class="fa fa-trash"></i></button></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</html>

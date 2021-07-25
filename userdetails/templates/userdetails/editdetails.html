@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit details</title>
+  <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/0e3ac2e4e1.js" crossorigin="anonymous"></script>
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static 'userdetails/css/viewbasicdetails.css' %}">
+</head>
+<body>
+
+   <div class="row mt-4" style="margin-left: 13%;">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-sm-3 col-xs-12">
+                            <h4 class="title"><span style="font-family: 'Times New Roman';">Edit details</span></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <form action="/editdata/{{viewdetails.id}}/" method="post">
+                        {% csrf_token %}
+    <div class="container">
+
+  <div class="form-group">
+    <label for="FirstName">Enter your Course Name</label>
+    <input type="text" class="form-control" id="course_name" value="{{viewdetails.course_name}}" name="course_name" placeholder="Enter Course name" required>
+  </div>
+        <div class="form-group">
+    <label for="LastName">Enter your University Name</label>
+    <input type="text" class="form-control" id="university_name" value="{{viewdetails.university_name}}" name="university_name" placeholder="Enter University Name" required>
+  </div>
+        <div class="form-group">
+    <label for="Passing Year">Passing Year</label>
+    <input type="text" class="form-control" id="passing_year" value="{{viewdetails.passing_year}}" name="passing_year" placeholder="Enter your Passing Year" required>
+  </div>
+
+        <button type="submit" class="btn btn-warning">Update</button>
+    </div>
+      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</html>

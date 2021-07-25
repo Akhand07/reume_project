@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>| Update details of student basic details |</title>
+  <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/0e3ac2e4e1.js" crossorigin="anonymous"></script>
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static 'userdetails/css/viewbasicdetails.css' %}">
+</head>
+<body>
+
+   <div class="row mt-4" style="margin-left: 13%;">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-sm-3 col-xs-12">
+                            <h4 class="title"><span style="font-family: 'Times New Roman';">Edit details</span></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <form action="/editbasicdata/{{viewedudetails.id}}/" method="post">
+                        {% csrf_token %}
+    <div class="container">
+
+  <div class="form-group">
+    <label for="First Name">Enter First Name</label>
+    <input type="text" class="form-control" id="first_name" value="{{viewedudetails.first_name}}" name="first_name" placeholder="Enter First name" required>
+  </div>
+        <div class="form-group">
+    <label for="Last Name">Enter Last Name</label>
+    <input type="text" class="form-control" id="last_name" value="{{viewedudetails.last_name}}" name="last_name" placeholder="Enter Last Name" required>
+  </div>
+        <div class="form-group">
+    <label for="Father Name">Enter Father Name</label>
+    <input type="text" class="form-control" id="father_name" value="{{viewedudetails.father_name}}" name="father_name" placeholder="Enter Father Name" required>
+  </div>
+        <div class="form-group">
+    <label for="Mother Name">Enter Mother Name</label>
+    <input type="text" class="form-control" id="mother_name" value="{{viewedudetails.mother_name}}" name="mother_name" placeholder="Enter Mother Name" required>
+  </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="male" name="gender"  id="male">
+             <label class="form-check-label" for="male">Male</label>
+          </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" value="female"  id="female">
+             <label class="form-check-label" for="female">Female</label>
+        </div>
+        <div class="form-group">
+            <label for="Date-Of-Birth">Date Of Birth</label>
+    <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" value="{{viewedudetails.date_of_birth}}" placeholder="Enter Date-of-Birth" required>
+  </div>
+          <div class="form-group">
+              <label for="About">Description</label>
+              <textarea class="form-control" id="about" name="about"  value="{{viewedudetails.about}}" placeholder="Describe about student" required></textarea>
+          </div>
+
+        <button type="submit" class="btn btn-success"><b>Update details</b></button>
+    </div>
+      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</html>
